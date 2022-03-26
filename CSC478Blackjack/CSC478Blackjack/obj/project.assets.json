@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sam\\Source\\Repos\\Team-2-Blackjack\\CSC478Blackjack\\CSC478Blackjack\\CSC478Blackjack.csproj",
-      "projectName": "CSC478Blackjack",
-      "projectPath": "C:\\Users\\Sam\\Source\\Repos\\Team-2-Blackjack\\CSC478Blackjack\\CSC478Blackjack\\CSC478Blackjack.csproj",
+      "projectUniqueName": "C:\\Users\\Sam\\Source\\Repos\\Team-2-Blackjack\\CSC478Blackjack\\CSC478Blackjack\\CSC478Blackjack1.0.csproj",
+      "projectName": "CSC478Blackjack1.0",
+      "projectPath": "C:\\Users\\Sam\\Source\\Repos\\Team-2-Blackjack\\CSC478Blackjack\\CSC478Blackjack\\CSC478Blackjack1.0.csproj",
       "packagesPath": "C:\\Users\\Sam\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Sam\\Source\\Repos\\Team-2-Blackjack\\CSC478Blackjack\\CSC478Blackjack\\obj\\",
       "projectStyle": "PackageReference",
