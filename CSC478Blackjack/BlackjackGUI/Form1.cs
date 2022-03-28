@@ -16,5 +16,15 @@ namespace CSC478Blackjack
         {
             InitializeComponent();
         }
+
+        private void HitButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

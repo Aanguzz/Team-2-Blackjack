@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\CSC478Blackjack",
-    "\\CSC478Blackjack\\CSC478Blackjack"
+    "\\CSC478Blackjack\\BlackjackGUI"
   ],
-  "SelectedNode": "\\CSC478Blackjack\\CSC478Blackjack\\Program.cs",
+  "SelectedNode": "\\CSC478Blackjack\\BlackjackGUI\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
