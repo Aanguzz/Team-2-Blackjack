@@ -40,7 +40,7 @@ namespace CSC478Blackjack
             // 
             // StartGame
             // 
-            this.StartGame.Location = new System.Drawing.Point(89, 213);
+            this.StartGame.Location = new System.Drawing.Point(466, 541);
             this.StartGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.StartGame.Name = "StartGame";
             this.StartGame.Size = new System.Drawing.Size(100, 28);
@@ -61,7 +61,7 @@ namespace CSC478Blackjack
             // 
             // HitButton
             // 
-            this.HitButton.Location = new System.Drawing.Point(363, 458);
+            this.HitButton.Location = new System.Drawing.Point(381, 458);
             this.HitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.HitButton.Name = "HitButton";
             this.HitButton.Size = new System.Drawing.Size(100, 28);
@@ -105,7 +105,7 @@ namespace CSC478Blackjack
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1194, 631);
+            this.ClientSize = new System.Drawing.Size(1223, 644);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BetAmount);

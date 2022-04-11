@@ -1,0 +1,10 @@
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\bin\Debug\BlackjackGUI.exe.config
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\bin\Debug\BlackjackGUI.exe
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\bin\Debug\BlackjackGUI.pdb
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.csproj.AssemblyReference.cache
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.Form1.resources
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\BlackjackGUI.Properties.Resources.resources
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.csproj.GenerateResource.cache
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.csproj.CoreCompileInputs.cache
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\BlackjackGUI.exe
+C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\BlackjackGUI.pdb
