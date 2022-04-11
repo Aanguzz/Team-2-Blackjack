@@ -40,31 +40,35 @@ namespace CSC478Blackjack
             // 
             // StartGame
             // 
-            this.StartGame.Location = new System.Drawing.Point(466, 541);
-            this.StartGame.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StartGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartGame.Location = new System.Drawing.Point(95, 483);
+            this.StartGame.Margin = new System.Windows.Forms.Padding(4);
             this.StartGame.Name = "StartGame";
-            this.StartGame.Size = new System.Drawing.Size(100, 28);
+            this.StartGame.Size = new System.Drawing.Size(151, 50);
             this.StartGame.TabIndex = 0;
             this.StartGame.Text = "Start Game";
             this.StartGame.UseVisualStyleBackColor = true;
+            this.StartGame.Click += new System.EventHandler(this.StartGame_Click);
             // 
             // StayButton
             // 
             this.StayButton.AccessibleDescription = "";
-            this.StayButton.Location = new System.Drawing.Point(557, 458);
-            this.StayButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.StayButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StayButton.Location = new System.Drawing.Point(95, 405);
+            this.StayButton.Margin = new System.Windows.Forms.Padding(4);
             this.StayButton.Name = "StayButton";
-            this.StayButton.Size = new System.Drawing.Size(100, 28);
+            this.StayButton.Size = new System.Drawing.Size(118, 50);
             this.StayButton.TabIndex = 1;
             this.StayButton.Text = "Stay";
             this.StayButton.UseVisualStyleBackColor = true;
             // 
             // HitButton
             // 
-            this.HitButton.Location = new System.Drawing.Point(381, 458);
-            this.HitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.HitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HitButton.Location = new System.Drawing.Point(95, 327);
+            this.HitButton.Margin = new System.Windows.Forms.Padding(4);
             this.HitButton.Name = "HitButton";
-            this.HitButton.Size = new System.Drawing.Size(100, 28);
+            this.HitButton.Size = new System.Drawing.Size(118, 50);
             this.HitButton.TabIndex = 2;
             this.HitButton.Text = "Hit";
             this.HitButton.UseVisualStyleBackColor = true;
@@ -72,31 +76,34 @@ namespace CSC478Blackjack
             // 
             // BetAmount
             // 
-            this.BetAmount.Location = new System.Drawing.Point(89, 357);
-            this.BetAmount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BetAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BetAmount.Location = new System.Drawing.Point(72, 175);
+            this.BetAmount.Margin = new System.Windows.Forms.Padding(4);
             this.BetAmount.Name = "BetAmount";
-            this.BetAmount.Size = new System.Drawing.Size(100, 28);
+            this.BetAmount.Size = new System.Drawing.Size(188, 57);
             this.BetAmount.TabIndex = 3;
-            this.BetAmount.Text = "button1";
+            this.BetAmount.Text = "0";
             this.BetAmount.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(399, 300);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(367, 310);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 34);
+            this.label1.Size = new System.Drawing.Size(498, 58);
             this.label1.TabIndex = 9;
             this.label1.Text = "Dealer Must Stand on 17 and Must Draw to 16\r\nBlackjack Pays 3 to 1\r\n";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 97);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(52, 103);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
+            this.label2.Size = new System.Drawing.Size(243, 48);
             this.label2.TabIndex = 10;
             this.label2.Text = "BANKROLL";
             // 
@@ -105,14 +112,14 @@ namespace CSC478Blackjack
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1223, 644);
+            this.ClientSize = new System.Drawing.Size(1266, 681);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BetAmount);
             this.Controls.Add(this.HitButton);
             this.Controls.Add(this.StayButton);
             this.Controls.Add(this.StartGame);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

@@ -26,5 +26,10 @@ namespace CSC478Blackjack
         {
 
         }
+
+        private void StartGame_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
