@@ -22,8 +22,7 @@ namespace CSC478Blackjack
             Card ACard;
             string[] list = Directory.GetFiles(@"Cards", "*.gif"); //populate an array of strings
                                                                    //containing the filenames of all "*.gif" found in the local "cards" directory.
-                                                                   // The * essentially means (any/wildcard).
-                                                                   // So all file names ending in .gif will be considered by the GetFiles() method
+                                                                   // The * will fill in any text before .gif, so that all file names ending in .gif will be considered by the GetFiles() method
 
             for (int index = 0; index < 52; index++) //iterate through all 52 items(cards)
             {
