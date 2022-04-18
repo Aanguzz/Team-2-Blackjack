@@ -39,12 +39,6 @@ namespace CSC478Blackjack
                 AllCards[index] = ACard; //Assigns the properties of Acard to a Card object in the AllCards[] array
                                          //at the current index(which is the incrementing forloop control variable).
             }
-
-
-            string[] list2 = Directory.GetFiles(@"cards", "Wfswbackcard*.gif"); //populates array of strings
-                                                                                //which are filenames containing "Wfswbackcard*.gif" in the local "cards" directory.
-            Image Backimage = Image.FromFile(list2[0]); //Instantiates an image object referenced from the array of image filenames (list2[0]).
-            ACardBack = new Card(Backimage, 0); //instantiates a Card object. Passing the image, and a card value of 0.
         }
 
         private int GetNextCardValue(int currentcardnumber)
