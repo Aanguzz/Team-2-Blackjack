@@ -22,15 +22,12 @@ namespace CSC478Blackjack
 
         private void HitButton_Click(object sender, EventArgs e)
         {
-
+            
         }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void StayButton_Click(object sender, EventArgs e)
         {
-            HitButton.Enabled = false;
-            StayButton.Enabled = false;
-        }
 
+        }
         private void StartGame_Click(object sender, EventArgs e)
         {
             BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
@@ -38,12 +35,17 @@ namespace CSC478Blackjack
             HitButton.Enabled = true;
             StayButton.Enabled = true;
 
-
         }
-
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            HitButton.Enabled = false;
+            StayButton.Enabled = false;
+        }
         private void BetAmount_Click(object sender, EventArgs e)
         {
 
         }
+
+
     }
 }

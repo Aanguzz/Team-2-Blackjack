@@ -61,6 +61,7 @@ namespace CSC478Blackjack
             this.StayButton.TabIndex = 1;
             this.StayButton.Text = "Stay";
             this.StayButton.UseVisualStyleBackColor = true;
+            this.StayButton.Click += new System.EventHandler(this.StayButton_Click);
             // 
             // HitButton
             // 
