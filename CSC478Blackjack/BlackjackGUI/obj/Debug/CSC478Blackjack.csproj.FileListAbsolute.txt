@@ -8,3 +8,13 @@ C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\De
 C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.csproj.CoreCompileInputs.cache
 C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\BlackjackGUI.exe
 C:\Users\world\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\BlackjackGUI.pdb
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\bin\Debug\BlackjackGUI.exe.config
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\bin\Debug\BlackjackGUI.exe
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\bin\Debug\BlackjackGUI.pdb
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.csproj.AssemblyReference.cache
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.Form1.resources
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\BlackjackGUI.Properties.Resources.resources
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.csproj.GenerateResource.cache
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\CSC478Blackjack.csproj.CoreCompileInputs.cache
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\BlackjackGUI.exe
+C:\Users\Sam\Source\Repos\Team-2-Blackjack\CSC478Blackjack\BlackjackGUI\obj\Debug\BlackjackGUI.pdb

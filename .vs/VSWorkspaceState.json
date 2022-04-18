@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CSC478Blackjack",
+    "\\CSC478Blackjack\\BlackjackGUI"
   ],
-  "SelectedNode": "\\CSC478Blackjack.sln",
+  "SelectedNode": "\\CSC478Blackjack\\BlackjackGUI\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }
