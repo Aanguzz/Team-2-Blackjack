@@ -27,6 +27,7 @@ namespace CSC478Blackjack
         {
             InitializeComponent();
             BackOfCard = Image.FromFile("Cards/BackOfCard.png");
+            LoadLists();
         }
 
         private void HitButton_Click(object sender, EventArgs e)
@@ -92,6 +93,29 @@ namespace CSC478Blackjack
                 CheckBankrupt();
             }
 
+        }
+        public void LoadLists()
+        {
+            PlayerButtonList[0] = playerCard1;
+            PlayerButtonList[1] = playerCard2;
+            PlayerButtonList[2] = playerCard3;
+            PlayerButtonList[3] = playerCard4;
+            PlayerButtonList[4] = playerCard5;
+            DealerButtonList[0] = dealerCard1;
+            DealerButtonList[1] = dealerCard2;
+            DealerButtonList[2] = dealerCard3;
+            DealerButtonList[3] = dealerCard4;
+            DealerButtonList[4] = dealerCard5;
+            //PlayerLabelList[0] = playerCardValue1;
+            //PlayerLabelList[1] = playerCardValue2;
+            //PlayerLabelList[2] = playerCardValue3;
+            //PlayerLabelList[3] = playerCardValue4;
+            //PlayerLabelList[4] = playerCardValue5;
+            //DealerLabelList[0] = dealerCardValue1;
+            //DealerLabelList[1] = dealerCardValue2;
+            //DealerLabelList[2] = dealerCardValue3;
+            //DealerLabelList[3] = dealerCardValue4;
+            //DealerLabelList[4] = dealerCardValue5;
         }
 
         private void CheckBankrupt()
