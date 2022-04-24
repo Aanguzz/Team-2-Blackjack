@@ -44,7 +44,7 @@ namespace CSC478Blackjack
             numberofcards = 0;
             for (int i = 0; i < 5; i++)
             {
-                if (GetCard(i) != null && GetCard(i).GetAce())
+                if (GetCard(i) != null && GetCard(i).IsItAnAce())
                 {
                     if (GetCard(i).GetValue() == 1)
                     {
@@ -67,7 +67,7 @@ namespace CSC478Blackjack
             for (int i = 0; i < thehand.Length; i++)
             {
                 {
-                    if (GetCard(i) != null && GetCard(i).GetAce())
+                    if (GetCard(i) != null && GetCard(i).IsItAnAce())
                     {
                         return true;
                     }

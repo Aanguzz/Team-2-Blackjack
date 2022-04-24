@@ -20,7 +20,6 @@ namespace CSC478Blackjack
         Hand dealerHand = new Hand("Dealer");
         DeckOfCards deck = new DeckOfCards();
         bool firstHand = false;
-        bool acestoggle = false;
 
 
         public Form1()
@@ -36,6 +35,10 @@ namespace CSC478Blackjack
             {
                 if (playerHand.GetTotal() == 21)
                 {
+                    StartGame.Enabled = true;
+                    HitButton.Enabled = false;
+                    StayButton.Enabled = false;
+                    CurrentBetBox.Enabled = true;
                     DealersTurn();
                     CheckWinner();
                     DisplayDealerGraphics();
@@ -43,21 +46,57 @@ namespace CSC478Blackjack
                 }
                 else if (playerHand.GetTotal() > 21 && !playerHand.HasAces())
                 {
+                    StartGame.Enabled = true;
+                    HitButton.Enabled = false;
+                    StayButton.Enabled = false;
+                    CurrentBetBox.Enabled = true;
                     playerFunds.LostBet();
                     DisplayDealerGraphics();
                     DisplayPlayerGraphics();
                     MessageBox.Show("You busted! Dealer wins.");
                     CheckBankrupt();
                 }
+                //Potential Ace issue fix
+                //else if (playerHand.GetTotal() > 21 && playerHand.HasAces())
+                //{
+                //    if (playerHand.GetCard(0).IsItAnAce())
+                //    {
+                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
+                //        playerHand.GetCard(0).ToggleAce();
+                //        playerHand.SetTotal();
+                //    }
+                //    else if (playerHand.GetCard(1).IsItAnAce())
+                //    {
+                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
+                //        playerHand.GetCard(1).ToggleAce();
+                //        playerHand.SetTotal();
+                //    }
+                //    else if (playerHand.GetCard(2).IsItAnAce())
+                //    {
+                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
+                //        playerHand.GetCard(2).ToggleAce();
+                //        playerHand.SetTotal();
+                //    }
+                //    else if (playerHand.GetCard(3).IsItAnAce())
+                //    {
+                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
+                //        playerHand.GetCard(3).ToggleAce();
+                //        playerHand.SetTotal();
+                //    }
+                //    else if (playerHand.GetCard(4).IsItAnAce())
+                //    {
+                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
+                //        playerHand.GetCard(4).ToggleAce();
+                //        playerHand.SetTotal();
+                //    }
+                //}
             }
             else
             {
+
                 HitButton.Enabled = false;
             }
         }
-
-        
-
         private void StayButton_Click(object sender, EventArgs e)
         {
             //take note of the current cards
@@ -67,6 +106,9 @@ namespace CSC478Blackjack
             //Make the dealer stay on 17 or greater
             DisplayDealerGraphics();
             CurrentBetBox.Enabled = true;
+            StayButton.Enabled = false;
+            HitButton.Enabled = false;
+            StartGame.Enabled = true;
             if (playerHand.GetTotal() > 21)
             {
                 playerFunds.LostBet();
@@ -116,7 +158,6 @@ namespace CSC478Blackjack
                 CurrentBetBox.Text = playerFunds.GetTotalFundsString();
             }
             BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
-            CurrentBetBox.Text = "0";
             HitButton.Enabled = true;
             StayButton.Enabled = true;
             playerHand.ResetHand();
@@ -124,7 +165,8 @@ namespace CSC478Blackjack
             EnableCardButtons();
             CurrentBetBox.Enabled = false;
             firstHand = true;
-            
+            StartGame.Enabled = false;
+
 
             Card tempCard = deck.GetNextCard();
             dealerHand.DealCard(tempCard);
@@ -141,7 +183,15 @@ namespace CSC478Blackjack
             DisplayDealerGraphics();
             DisplayPlayerGraphics();
             firstHand = false;
-
+            var card1 = playerHand.GetCard(0);
+            if (playerHand.GetCard(0).GetValue() == 11 && playerHand.GetTotal() > 21 )
+            {
+                playerHand.GetCard(0).ToggleAce();
+            }
+            else if (playerHand.GetCard(1).GetValue() == 11 && playerHand.GetTotal() > 21)
+            {
+                playerHand.GetCard(1).ToggleAce();
+            }
 
             if (playerHand.GetTotal() == 21 && dealerHand.GetTotal() == 21)
             {
@@ -150,6 +200,9 @@ namespace CSC478Blackjack
             }
             else if (playerHand.GetTotal() == 21)
             {
+                StartGame.Enabled = true;
+                HitButton.Enabled = false;
+                StayButton.Enabled = false;
                 playerFunds.WonBet();
                 DisplayDealerGraphics();
                 DisplayPlayerGraphics();
@@ -209,6 +262,7 @@ namespace CSC478Blackjack
         {
             playerHand.GetCard(0).ToggleAce();
             playerHand.SetTotal();
+            PlayerTotalLabel.Text = playerHand.GetTotalString();
             DisplayPlayerGraphics();
         }
 
@@ -294,7 +348,7 @@ namespace CSC478Blackjack
             {
                 for (int i = 0; i < dealerHand.GetNumberofCards(); i++)
                 {
-                    if (dealerHand.GetCard(i).GetAce() && dealerHand.GetCard(i).GetValue() == 11)
+                    if (dealerHand.GetCard(i).IsItAnAce() && dealerHand.GetCard(i).GetValue() == 11)
                     {
                         dealerHand.GetCard(i).ToggleAce();
                         dealerHand.SetTotal();
@@ -372,7 +426,7 @@ namespace CSC478Blackjack
                 DealerButtonList[0].Visible = true;
                 DealerButtonList[1].BackgroundImage = BackOfCard;
                 DealerButtonList[1].Visible = true;
-                //dealerTotal.Text = DealerHand.GetCard(0).GetValueString();
+                DealerTotalLabel.Text = dealerHand.GetCard(0).GetValueString();
             }
             else
             {
@@ -381,7 +435,7 @@ namespace CSC478Blackjack
                     Card acard = dealerHand.GetCard(i);
                     DealerButtonList[i].BackgroundImage = acard.GetImage();
                     DealerButtonList[i].Visible = true;
-                    //dealerTotal.Text = dealerHand.GetTotalString();
+                    DealerTotalLabel.Text = dealerHand.GetTotalString();
                 }
             }
         }
@@ -392,7 +446,7 @@ namespace CSC478Blackjack
                 for (int i = 0; i < 5; i++)
                 {
                     PlayerButtonList[i].Visible = false;
-                    //playerTotal.Text = "";
+                    PlayerTotalLabel.Text = "";
                 }
                 for (int i = 0; i < playerHand.GetNumberofCards(); i++)
                 {
@@ -400,7 +454,7 @@ namespace CSC478Blackjack
                     {
                         PlayerButtonList[i].BackgroundImage = acard.GetImage();
                         PlayerButtonList[i].Visible = true;
-                        //playerTotal.Text = PlayerHand.GetTotalString();
+                        PlayerTotalLabel.Text = playerHand.GetTotalString();
                     }
                 }
             }
@@ -411,28 +465,42 @@ namespace CSC478Blackjack
                     Card acard = playerHand.GetCard(i);
                     PlayerButtonList[i].BackgroundImage = acard.GetImage();
                     PlayerButtonList[i].Visible = true;
-                    //playerTotal.Text = PlayerHand.GetTotalString();
+                    PlayerTotalLabel.Text = playerHand.GetTotalString();
                 }
             }
             BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
         }
-        private void BankrollAmountBox_TextChanged(object sender, EventArgs e)
+        private void CurrentBetBox_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
+            if (CurrentBetBox.Text.Equals(null))
+            {
+                playerFunds.SetBetAmount(100);
+            }
+            else
+            {
+                playerFunds.SetBetAmount(int.Parse(CurrentBetBox.Text));
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             HitButton.Enabled = false;
             StayButton.Enabled = false;
+            BankrollAmountBox.Enabled = false;
+            BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
+            CurrentBetBox.Text = "100";
         }
         private void BetAmount_Click(object sender, EventArgs e)
         {
 
         }
+        private void BankrollAmountBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+       
     }
 }

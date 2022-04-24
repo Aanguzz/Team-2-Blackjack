@@ -191,7 +191,7 @@ namespace CSC478Blackjack
                 {
                     Card FoundAce = AllCards[aceindex];
 
-                    if (FoundAce.GetAce())
+                    if (FoundAce.IsItAnAce())
                     {
                         Card OriginalCard = AllCards[i];
 
@@ -218,7 +218,7 @@ namespace CSC478Blackjack
                 {
                     Card FoundAce = AllCards[aceindex];
 
-                    if (FoundAce.GetAce())
+                    if (FoundAce.IsItAnAce())
                     {
                         Card OriginalCard = AllCards[i];
 

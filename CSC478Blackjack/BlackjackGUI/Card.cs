@@ -51,8 +51,9 @@ namespace CSC478Blackjack
         {
             return image;
         }
-        public bool GetAce()
+        public bool IsItAnAce()
         {
+            //Returns true if the card is an Ace, returns false otherwise.
             return IsAce;
         }
     }
