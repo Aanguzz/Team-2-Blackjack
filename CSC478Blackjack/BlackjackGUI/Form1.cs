@@ -27,6 +27,11 @@ namespace CSC478Blackjack
             InitializeComponent();
             BackOfCard = Image.FromFile("Cards/BackOfCard.png");
             LoadLists();
+            HitButton.Enabled = false;
+            StayButton.Enabled = false;
+            BankrollAmountBox.Enabled = false;
+            BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
+            CurrentBetBox.Text = "100";
         }
 
         private void HitButton_Click(object sender, EventArgs e)
@@ -183,18 +188,12 @@ namespace CSC478Blackjack
             DisplayDealerGraphics();
             DisplayPlayerGraphics();
             firstHand = false;
-            var card1 = playerHand.GetCard(0);
-            if (playerHand.GetCard(0).GetValue() == 11 && playerHand.GetTotal() > 21 )
-            {
-                playerHand.GetCard(0).ToggleAce();
-            }
-            else if (playerHand.GetCard(1).GetValue() == 11 && playerHand.GetTotal() > 21)
-            {
-                playerHand.GetCard(1).ToggleAce();
-            }
 
             if (playerHand.GetTotal() == 21 && dealerHand.GetTotal() == 21)
             {
+                StartGame.Enabled = true;
+                HitButton.Enabled = false;
+                StayButton.Enabled = false;
                 DisplayDealerGraphics();
                 MessageBox.Show("Tie. Nothing happens.");
             }
@@ -210,6 +209,9 @@ namespace CSC478Blackjack
             }
             else if (dealerHand.GetTotal() == 21)
             {
+                StartGame.Enabled = true;
+                HitButton.Enabled = false;
+                StayButton.Enabled = false;
                 playerFunds.LostBet();  
                 DisplayDealerGraphics();
                 DisplayPlayerGraphics();
@@ -483,11 +485,7 @@ namespace CSC478Blackjack
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            HitButton.Enabled = false;
-            StayButton.Enabled = false;
-            BankrollAmountBox.Enabled = false;
-            BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
-            CurrentBetBox.Text = "100";
+            
         }
         private void BetAmount_Click(object sender, EventArgs e)
         {
