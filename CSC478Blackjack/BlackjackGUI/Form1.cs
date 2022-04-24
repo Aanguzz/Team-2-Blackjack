@@ -36,6 +36,7 @@ namespace CSC478Blackjack
 
         private void HitButton_Click(object sender, EventArgs e)
         {
+            EnableCardButtons();
             if (DealCardToPlayer())
             {
                 if (playerHand.GetTotal() == 21)
@@ -110,6 +111,7 @@ namespace CSC478Blackjack
             //Make the dealer draw if under 17
             //Make the dealer stay on 17 or greater
             DisplayDealerGraphics();
+            DisableCardButtons();
             CurrentBetBox.Enabled = true;
             StayButton.Enabled = false;
             HitButton.Enabled = false;
@@ -202,7 +204,7 @@ namespace CSC478Blackjack
                 StartGame.Enabled = true;
                 HitButton.Enabled = false;
                 StayButton.Enabled = false;
-                playerFunds.WonBet();
+                playerFunds.BlackJackWin();
                 DisplayDealerGraphics();
                 DisplayPlayerGraphics();
                 MessageBox.Show("Blackjack!! You win!!!");
@@ -232,18 +234,8 @@ namespace CSC478Blackjack
             DealerButtonList[2] = dealerCard3;
             DealerButtonList[3] = dealerCard4;
             DealerButtonList[4] = dealerCard5;
-            //PlayerLabelList[0] = playerCardValue1;
-            //PlayerLabelList[1] = playerCardValue2;
-            //PlayerLabelList[2] = playerCardValue3;
-            //PlayerLabelList[3] = playerCardValue4;
-            //PlayerLabelList[4] = playerCardValue5;
-            //DealerLabelList[0] = dealerCardValue1;
-            //DealerLabelList[1] = dealerCardValue2;
-            //DealerLabelList[2] = dealerCardValue3;
-            //DealerLabelList[3] = dealerCardValue4;
-            //DealerLabelList[4] = dealerCardValue5;
         }
-        private void DiableCardButtons()
+        private void DisableCardButtons()
         {
             playerCard1.Enabled = false;
             playerCard2.Enabled = false;
@@ -264,7 +256,6 @@ namespace CSC478Blackjack
         {
             playerHand.GetCard(0).ToggleAce();
             playerHand.SetTotal();
-            PlayerTotalLabel.Text = playerHand.GetTotalString();
             DisplayPlayerGraphics();
         }
 
@@ -309,14 +300,29 @@ namespace CSC478Blackjack
             {
                 if (dealerHand.GetTotal() > 21)
                 {
-                    playerFunds.WonBet();
+                    if (checkBlackJack())
+                    {
+                        playerFunds.BlackJackWin();
+
+                    }
+                    else
+                    {
+                        playerFunds.WonBet();
+                    }
                     DisplayPlayerGraphics();
                     MessageBox.Show("Dealer's Hand:" + dealerHand.GetTotalString() + "\nPlayer's Hand:" + playerHand.GetTotalString() + "\n\nDealer Busts. You win!");
                 }
                 else
                 {
+                    if (checkBlackJack())
+                    {
+                        playerFunds.BlackJackWin();
 
-                    playerFunds.WonBet();
+                    }
+                    else
+                    {
+                        playerFunds.WonBet();
+                    }
                     DisplayPlayerGraphics();
                     MessageBox.Show("Dealer's Hand:" + dealerHand.GetTotalString() + "\nPlayer's Hand:" + playerHand.GetTotalString() + "\n\nYou have the better hand. You win!");
                 }
@@ -333,7 +339,15 @@ namespace CSC478Blackjack
                 }
                 else
                 {
-                    playerFunds.WonBet();
+                    if (checkBlackJack())
+                    {
+                        playerFunds.BlackJackWin();
+
+                    }
+                    else
+                    {
+                        playerFunds.WonBet();
+                    }
                     DisplayPlayerGraphics();
                     MessageBox.Show("Dealer's Hand:" + dealerHand.GetTotalString() + "\nPlayer's Hand:" + playerHand.GetTotalString() + "\n\nDealer Busts. You win!");
                 }
@@ -342,8 +356,21 @@ namespace CSC478Blackjack
             {
                 MessageBox.Show("Dealer's Hand:" + dealerHand.GetTotalString() + "\nPlayer's Hand:" + playerHand.GetTotalString() + "\n\nTie. Nothing happens.");
             }
-            DiableCardButtons();
+            DisableCardButtons();
         }
+
+        private bool checkBlackJack()
+        {
+            if (playerHand.GetTotal() == 21)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private bool DealerCheckAce()
         {
             if (dealerHand.GetTotal() > 21 && dealerHand.HasAces())
@@ -487,18 +514,6 @@ namespace CSC478Blackjack
         {
             
         }
-        private void BetAmount_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void BankrollAmountBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-       
+     
     }
 }

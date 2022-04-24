@@ -25,6 +25,10 @@ namespace CSC478Blackjack
         {
             totalfunds = totalfunds + betamount;
         }
+        public void BlackJackWin()
+        {
+            totalfunds = totalfunds + (betamount * 3);
+        }
         public void LostBet()
         {
             totalfunds = totalfunds - betamount;

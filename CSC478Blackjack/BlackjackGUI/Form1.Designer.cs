@@ -97,7 +97,6 @@ namespace CSC478Blackjack
             this.label1.Size = new System.Drawing.Size(390, 48);
             this.label1.TabIndex = 9;
             this.label1.Text = "Dealer Must Stand on 17 and Must Draw to 16\r\nBlackjack Pays 3 to 1\r\n";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // BankrollLabel
             // 
@@ -126,7 +125,6 @@ namespace CSC478Blackjack
             this.BankrollAmountBox.Name = "BankrollAmountBox";
             this.BankrollAmountBox.Size = new System.Drawing.Size(203, 45);
             this.BankrollAmountBox.TabIndex = 12;
-            this.BankrollAmountBox.TextChanged += new System.EventHandler(this.BankrollAmountBox_TextChanged);
             // 
             // CurrentBetBox
             // 
@@ -202,6 +200,7 @@ namespace CSC478Blackjack
             this.playerCard5.TabIndex = 33;
             this.playerCard5.UseVisualStyleBackColor = false;
             this.playerCard5.Visible = false;
+            this.playerCard2.Click += new System.EventHandler(this.playerCard5_Click);
             // 
             // playerCard2
             // 
@@ -213,6 +212,7 @@ namespace CSC478Blackjack
             this.playerCard2.TabIndex = 32;
             this.playerCard2.UseVisualStyleBackColor = false;
             this.playerCard2.Visible = false;
+            this.playerCard2.Click += new System.EventHandler(this.playerCard2_Click);
             // 
             // playerCard3
             // 
@@ -224,6 +224,7 @@ namespace CSC478Blackjack
             this.playerCard3.TabIndex = 31;
             this.playerCard3.UseVisualStyleBackColor = false;
             this.playerCard3.Visible = false;
+            this.playerCard2.Click += new System.EventHandler(this.playerCard3_Click);
             // 
             // playerCard4
             // 
@@ -235,6 +236,7 @@ namespace CSC478Blackjack
             this.playerCard4.TabIndex = 30;
             this.playerCard4.UseVisualStyleBackColor = false;
             this.playerCard4.Visible = false;
+            this.playerCard2.Click += new System.EventHandler(this.playerCard4_Click);
             // 
             // playerCard1
             // 
@@ -246,6 +248,7 @@ namespace CSC478Blackjack
             this.playerCard1.TabIndex = 29;
             this.playerCard1.UseVisualStyleBackColor = false;
             this.playerCard1.Visible = false;
+            this.playerCard2.Click += new System.EventHandler(this.playerCard1_Click);
             // 
             // PlayerHandLabel
             // 
