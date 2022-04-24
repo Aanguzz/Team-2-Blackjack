@@ -200,7 +200,7 @@ namespace CSC478Blackjack
             this.playerCard5.TabIndex = 33;
             this.playerCard5.UseVisualStyleBackColor = false;
             this.playerCard5.Visible = false;
-            this.playerCard2.Click += new System.EventHandler(this.playerCard5_Click);
+            this.playerCard5.Click += new System.EventHandler(this.playerCard5_Click);
             // 
             // playerCard2
             // 
@@ -224,7 +224,7 @@ namespace CSC478Blackjack
             this.playerCard3.TabIndex = 31;
             this.playerCard3.UseVisualStyleBackColor = false;
             this.playerCard3.Visible = false;
-            this.playerCard2.Click += new System.EventHandler(this.playerCard3_Click);
+            this.playerCard3.Click += new System.EventHandler(this.playerCard3_Click);
             // 
             // playerCard4
             // 
@@ -236,7 +236,7 @@ namespace CSC478Blackjack
             this.playerCard4.TabIndex = 30;
             this.playerCard4.UseVisualStyleBackColor = false;
             this.playerCard4.Visible = false;
-            this.playerCard2.Click += new System.EventHandler(this.playerCard4_Click);
+            this.playerCard4.Click += new System.EventHandler(this.playerCard4_Click);
             // 
             // playerCard1
             // 
@@ -248,7 +248,7 @@ namespace CSC478Blackjack
             this.playerCard1.TabIndex = 29;
             this.playerCard1.UseVisualStyleBackColor = false;
             this.playerCard1.Visible = false;
-            this.playerCard2.Click += new System.EventHandler(this.playerCard1_Click);
+            this.playerCard1.Click += new System.EventHandler(this.playerCard1_Click);
             // 
             // PlayerHandLabel
             // 

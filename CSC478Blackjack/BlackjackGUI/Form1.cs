@@ -36,7 +36,6 @@ namespace CSC478Blackjack
 
         private void HitButton_Click(object sender, EventArgs e)
         {
-            EnableCardButtons();
             if (DealCardToPlayer())
             {
                 if (playerHand.GetTotal() == 21)
@@ -62,40 +61,23 @@ namespace CSC478Blackjack
                     MessageBox.Show("You busted! Dealer wins.");
                     CheckBankrupt();
                 }
+                else if(playerHand.GetTotal() > 21 && PlayerCheckAce() == false)
+                {
+                    StartGame.Enabled = true;
+                    HitButton.Enabled = false;
+                    StayButton.Enabled = false;
+                    CurrentBetBox.Enabled = true;
+                    playerFunds.LostBet();
+                    DisplayDealerGraphics();
+                    DisplayPlayerGraphics();
+                    MessageBox.Show("You busted! Dealer wins.");
+                    CheckBankrupt();
+                }
                 //Potential Ace issue fix
-                //else if (playerHand.GetTotal() > 21 && playerHand.HasAces())
-                //{
-                //    if (playerHand.GetCard(0).IsItAnAce())
-                //    {
-                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
-                //        playerHand.GetCard(0).ToggleAce();
-                //        playerHand.SetTotal();
-                //    }
-                //    else if (playerHand.GetCard(1).IsItAnAce())
-                //    {
-                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
-                //        playerHand.GetCard(1).ToggleAce();
-                //        playerHand.SetTotal();
-                //    }
-                //    else if (playerHand.GetCard(2).IsItAnAce())
-                //    {
-                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
-                //        playerHand.GetCard(2).ToggleAce();
-                //        playerHand.SetTotal();
-                //    }
-                //    else if (playerHand.GetCard(3).IsItAnAce())
-                //    {
-                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
-                //        playerHand.GetCard(3).ToggleAce();
-                //        playerHand.SetTotal();
-                //    }
-                //    else if (playerHand.GetCard(4).IsItAnAce())
-                //    {
-                //        PlayerTotalLabel.Text = playerHand.GetTotalString();
-                //        playerHand.GetCard(4).ToggleAce();
-                //        playerHand.SetTotal();
-                //    }
-                //}
+                else if (playerHand.GetTotal() > 21 && playerHand.HasAces())
+                {
+                    PlayerCheckAce();
+                }
             }
             else
             {
@@ -382,6 +364,23 @@ namespace CSC478Blackjack
                         dealerHand.GetCard(i).ToggleAce();
                         dealerHand.SetTotal();
                         DisplayDealerGraphics();
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        private bool PlayerCheckAce()
+        {
+            if (playerHand.GetTotal() > 21 && playerHand.HasAces())
+            {
+                for (int i = 0; i < playerHand.GetNumberofCards(); i++)
+                {
+                    if (playerHand.GetCard(i).IsItAnAce() && playerHand.GetCard(i).GetValue() == 11)
+                    {
+                        playerHand.GetCard(i).ToggleAce();
+                        playerHand.SetTotal();
+                        DisplayPlayerGraphics();
                         return true;
                     }
                 }
