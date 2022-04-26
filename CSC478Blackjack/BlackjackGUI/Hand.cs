@@ -6,18 +6,17 @@ namespace CSC478Blackjack
 {
     class Hand
     {
-        Card[] thehand = new Card[5];
+        Card[] theHand = new Card[5];
         int total = 0;
-        int numberofcards = 0;
-        String name;
+        int numberOfCards = 0;
 
-        public Hand(String thename)
+        public Hand()
         {
-            name = thename;
+            
         }
         public void DealCard(Card ACard)
         {
-            thehand[numberofcards++] = ACard;
+            theHand[numberOfCards++] = ACard;
             total = total + ACard.GetValue();
         }
         public int GetTotal()
@@ -41,7 +40,7 @@ namespace CSC478Blackjack
         public void ResetHand()
         {
             total = 0;
-            numberofcards = 0;
+            numberOfCards = 0;
             for (int i = 0; i < 5; i++)
             {
                 if (GetCard(i) != null && GetCard(i).IsItAnAce())
@@ -51,20 +50,20 @@ namespace CSC478Blackjack
                         GetCard(i).ToggleAce();
                     }
                 }
-                thehand[i] = null;
+                theHand[i] = null;
             }
         }
         public int GetNumberofCards()
         {
-            return numberofcards;
+            return numberOfCards;
         }
         public Card GetCard(int index)
         {
-            return thehand[index];
+            return theHand[index];
         }
         public bool HasAces()
         {
-            for (int i = 0; i < thehand.Length; i++)
+            for (int i = 0; i < theHand.Length; i++)
             {
                 {
                     if (GetCard(i) != null && GetCard(i).IsItAnAce())

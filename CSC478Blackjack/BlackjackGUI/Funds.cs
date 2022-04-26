@@ -6,40 +6,40 @@ namespace CSC478Blackjack
 {
     class Funds
     {
-        int totalfunds;
-        int betamount = 100;
+        int totalFunds;
+        int betAmount = 100;
 
         public Funds(int initialfunds)
         {
-            totalfunds = initialfunds;
+            totalFunds = initialfunds;
         }
         public void SetBetAmount(int bet)
         {
-            betamount = bet;
+            betAmount = bet;
         }
         public int GetBetAmount()
         {
-            return betamount;
+            return betAmount;
         }
         public void WonBet()
         {
-            totalfunds = totalfunds + betamount;
+            totalFunds = totalFunds + betAmount;
         }
         public void BlackJackWin()
         {
-            totalfunds = totalfunds + (betamount * 3);
+            totalFunds = totalFunds + (betAmount * 3);
         }
         public void LostBet()
         {
-            totalfunds = totalfunds - betamount;
+            totalFunds = totalFunds - betAmount;
         }
         public int GetTotalFunds()
         {
-            return totalfunds;
+            return totalFunds;
         }
         public string GetTotalFundsString()
         {
-            return "$" + Convert.ToString(totalfunds);
+            return "$" + Convert.ToString(totalFunds);
         }
     }
 }

@@ -13,11 +13,11 @@ namespace CSC478Blackjack
     public partial class Form1 : Form
     {
         Funds playerFunds = new Funds(5000);
-        Image BackOfCard;
-        Button[] PlayerButtonList = new Button[5];
-        Button[] DealerButtonList = new Button[5];
-        Hand playerHand = new Hand("Player");
-        Hand dealerHand = new Hand("Dealer");
+        Image backOfCard;
+        Button[] playerCardButtonList = new Button[5];
+        Button[] dealerCardButtonList = new Button[5];
+        Hand playerHand = new Hand();
+        Hand dealerHand = new Hand();
         DeckOfCards deck = new DeckOfCards();
         bool firstHand = false;
 
@@ -25,7 +25,7 @@ namespace CSC478Blackjack
         public Form1()
         {
             InitializeComponent();
-            BackOfCard = Image.FromFile("Cards/BackOfCard.png");
+            backOfCard = Image.FromFile("Cards/BackOfCard.png");
             LoadLists();
             HitButton.Enabled = false;
             StayButton.Enabled = false;
@@ -206,16 +206,16 @@ namespace CSC478Blackjack
         }
         public void LoadLists()
         {
-            PlayerButtonList[0] = playerCard1;
-            PlayerButtonList[1] = playerCard2;
-            PlayerButtonList[2] = playerCard3;
-            PlayerButtonList[3] = playerCard4;
-            PlayerButtonList[4] = playerCard5;
-            DealerButtonList[0] = dealerCard1;
-            DealerButtonList[1] = dealerCard2;
-            DealerButtonList[2] = dealerCard3;
-            DealerButtonList[3] = dealerCard4;
-            DealerButtonList[4] = dealerCard5;
+            playerCardButtonList[0] = playerCard1;
+            playerCardButtonList[1] = playerCard2;
+            playerCardButtonList[2] = playerCard3;
+            playerCardButtonList[3] = playerCard4;
+            playerCardButtonList[4] = playerCard5;
+            dealerCardButtonList[0] = dealerCard1;
+            dealerCardButtonList[1] = dealerCard2;
+            dealerCardButtonList[2] = dealerCard3;
+            dealerCardButtonList[3] = dealerCard4;
+            dealerCardButtonList[4] = dealerCard5;
         }
         private void DisableCardButtons()
         {
@@ -282,7 +282,7 @@ namespace CSC478Blackjack
             {
                 if (dealerHand.GetTotal() > 21)
                 {
-                    if (checkBlackJack())
+                    if (CheckBlackJack())
                     {
                         playerFunds.BlackJackWin();
 
@@ -296,7 +296,7 @@ namespace CSC478Blackjack
                 }
                 else
                 {
-                    if (checkBlackJack())
+                    if (CheckBlackJack())
                     {
                         playerFunds.BlackJackWin();
 
@@ -321,7 +321,7 @@ namespace CSC478Blackjack
                 }
                 else
                 {
-                    if (checkBlackJack())
+                    if (CheckBlackJack())
                     {
                         playerFunds.BlackJackWin();
 
@@ -341,7 +341,7 @@ namespace CSC478Blackjack
             DisableCardButtons();
         }
 
-        private bool checkBlackJack()
+        private bool CheckBlackJack()
         {
             if (playerHand.GetTotal() == 21)
             {
@@ -448,12 +448,12 @@ namespace CSC478Blackjack
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    DealerButtonList[i].Visible = false;
+                    dealerCardButtonList[i].Visible = false;
                 }
-                DealerButtonList[0].BackgroundImage = dealerHand.GetCard(0).GetImage();
-                DealerButtonList[0].Visible = true;
-                DealerButtonList[1].BackgroundImage = BackOfCard;
-                DealerButtonList[1].Visible = true;
+                dealerCardButtonList[0].BackgroundImage = dealerHand.GetCard(0).GetImage();
+                dealerCardButtonList[0].Visible = true;
+                dealerCardButtonList[1].BackgroundImage = backOfCard;
+                dealerCardButtonList[1].Visible = true;
                 DealerTotalLabel.Text = dealerHand.GetCard(0).GetValueString();
             }
             else
@@ -461,8 +461,8 @@ namespace CSC478Blackjack
                 for (int i = 0; i < dealerHand.GetNumberofCards(); i++)
                 {
                     Card acard = dealerHand.GetCard(i);
-                    DealerButtonList[i].BackgroundImage = acard.GetImage();
-                    DealerButtonList[i].Visible = true;
+                    dealerCardButtonList[i].BackgroundImage = acard.GetImage();
+                    dealerCardButtonList[i].Visible = true;
                     DealerTotalLabel.Text = dealerHand.GetTotalString();
                 }
             }
@@ -473,15 +473,15 @@ namespace CSC478Blackjack
             {
                 for (int i = 0; i < 5; i++)
                 {
-                    PlayerButtonList[i].Visible = false;
+                    playerCardButtonList[i].Visible = false;
                     PlayerTotalLabel.Text = "";
                 }
                 for (int i = 0; i < playerHand.GetNumberofCards(); i++)
                 {
                     Card acard = playerHand.GetCard(i);
                     {
-                        PlayerButtonList[i].BackgroundImage = acard.GetImage();
-                        PlayerButtonList[i].Visible = true;
+                        playerCardButtonList[i].BackgroundImage = acard.GetImage();
+                        playerCardButtonList[i].Visible = true;
                         PlayerTotalLabel.Text = playerHand.GetTotalString();
                     }
                 }
@@ -491,8 +491,8 @@ namespace CSC478Blackjack
                 for (int i = 0; i < playerHand.GetNumberofCards(); i++)
                 {
                     Card acard = playerHand.GetCard(i);
-                    PlayerButtonList[i].BackgroundImage = acard.GetImage();
-                    PlayerButtonList[i].Visible = true;
+                    playerCardButtonList[i].BackgroundImage = acard.GetImage();
+                    playerCardButtonList[i].Visible = true;
                     PlayerTotalLabel.Text = playerHand.GetTotalString();
                 }
             }

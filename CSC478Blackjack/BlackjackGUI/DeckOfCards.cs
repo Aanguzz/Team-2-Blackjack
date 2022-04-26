@@ -8,9 +8,8 @@ namespace CSC478Blackjack
 {
     class DeckOfCards
     {
-        Card[] AllCards = new Card[52];
-        Card ACardBack = null;
-        int currentcardnumber = 0;
+        Card[] allCards = new Card[52];
+        int currentCardNumber = 0;
 
         public DeckOfCards()
         {
@@ -36,199 +35,38 @@ namespace CSC478Blackjack
                                                   //The Aces will be between index 32 and 36 due to the order in which the array was populated
 
                 }
-                AllCards[index] = ACard; //Assigns the properties of Acard to a Card object in the AllCards[] array
+                allCards[index] = ACard; //Assigns the properties of Acard to a Card object in the AllCards[] array
                                          //at the current index(which is the incrementing forloop control variable).
             }
         }
-
         private int GetNextCardValue(int currentcardnumber)
         {
-            int cardvalue = 0;
+            int cardValue = 0;
             if (currentcardnumber < 33)
-                cardvalue = (currentcardnumber / 4) + 2;  //fun math, and integers dont return decimals.
+                cardValue = (currentcardnumber / 4) + 2;
             else
             {
-                cardvalue = 10;
+                cardValue = 10;
             }
             if (currentcardnumber > 31 && currentcardnumber < 36)
-                cardvalue = 11;//aces
-            return cardvalue;
+                cardValue = 11;//aces
+            return cardValue;
         }
         public Card GetNextCard()
         {
-            return (AllCards[currentcardnumber++]);
+            return (allCards[currentCardNumber+=1]);
         }
         public void ShuffleDeck()
         {
             Random rand = new Random();
-            for (int i = 0; i < AllCards.Length - 1; i++)
+            for (int i = 0; i < allCards.Length - 1; i++)
             {
-                int j = rand.Next(i + 1, AllCards.Length);
-                Card temp = AllCards[i];
-                AllCards[i] = AllCards[j];
-                AllCards[j] = temp;
+                int j = rand.Next(i + 1, allCards.Length);
+                Card temp = allCards[i];
+                allCards[i] = allCards[j];
+                allCards[j] = temp;
             }
-            currentcardnumber = 0;
-        }
-        //assumes you deal card to dealer, player, dealer, player in Purple
-        // no shuffle in purple button
-        public void DealerlowcardsFirst()
-        {
-            int aceindex = 0;
-            int card9index = 0;
-            int card5index = 0;
-            int card6index = 0;
-
-            Boolean keepgoing = true;
-            ShuffleDeck();
-
-            // find a 9
-            card9index = aceindex = 0;
-            while (keepgoing)
-            {
-                Card TempCard1 = AllCards[aceindex];
-
-                if (TempCard1.GetValue() == 2)
-                {
-                    Card OriginalCard = AllCards[card9index];// original card spot to swap
-
-                    AllCards[card9index] = TempCard1;//put the 9 in the 5th card spot
-                    AllCards[aceindex] = OriginalCard;
-                    keepgoing = false;
-                }
-                aceindex++;
-
-            }
-
-            // find a 3
-            card5index = aceindex = 2;
-            keepgoing = true;
-            while (keepgoing)
-            {
-                Card TempCard1 = AllCards[aceindex];
-
-                if (TempCard1.GetValue() == 3)
-                {
-                    Card OriginalCard = AllCards[card5index];// original card spot to swap
-
-                    AllCards[card5index] = TempCard1;//put the 5 in the 6th card spot
-                    AllCards[aceindex] = OriginalCard;
-                    keepgoing = false;
-                }
-                aceindex++;
-
-            }
-
-            // find a 4 put it in the 4th card spot
-            card6index = aceindex = 4;
-            keepgoing = true;
-            while (keepgoing)
-            {
-                Card TempCard1 = AllCards[aceindex];
-
-                if (TempCard1.GetValue() == 4)
-                {
-                    Card OriginalCard = AllCards[card6index];// original card spot to swap
-
-                    AllCards[card6index] = TempCard1;//put the 6 in the 7th card spot
-                    AllCards[aceindex] = OriginalCard;
-                    keepgoing = false;
-                }
-                aceindex++;
-
-            }
-
-            // find a 3 put it in the 5th card spot
-            card6index = aceindex = 5;
-            keepgoing = true;
-            while (keepgoing)
-            {
-                Card TempCard1 = AllCards[aceindex];
-
-                if (TempCard1.GetValue() == 3)
-                {
-                    Card OriginalCard = AllCards[card6index];// original card spot to swap
-                    AllCards[card6index] = TempCard1;//put the 6 in the 7th card spot
-                    AllCards[aceindex] = OriginalCard;
-                    keepgoing = false;
-                }
-                aceindex++;
-            }
-
-            // find a 2 put it in the 6th card spot
-            card6index = aceindex = 6;
-            keepgoing = true;
-            while (keepgoing)
-            {
-                Card TempCard1 = AllCards[aceindex];
-
-                if (TempCard1.GetValue() == 2)
-                {
-                    Card OriginalCard = AllCards[card6index];// original card spot to swap
-
-                    AllCards[card6index] = TempCard1;//put the 6 in the 7th card spot
-                    AllCards[aceindex] = OriginalCard;
-                    keepgoing = false;
-                }
-                aceindex++;
-
-            }
-
-            currentcardnumber = 0;//RWW
-        }
-        public void PlayerDealerAces()
-        {
-            int aceindex = 0;
-            Boolean keepgoing = true;
-
-            ShuffleDeck();
-
-            for (int i = 0; i < 4; i++)
-            {
-
-                keepgoing = true;
-                while (keepgoing)
-                {
-                    Card FoundAce = AllCards[aceindex];
-
-                    if (FoundAce.IsItAnAce())
-                    {
-                        Card OriginalCard = AllCards[i];
-
-                        AllCards[i] = FoundAce;
-                        AllCards[aceindex] = OriginalCard;
-                        keepgoing = false;
-                    }
-                    aceindex++;
-                }
-            }
-        }
-        public void DealerAces()
-        {
-            int aceindex = 0;
-            Boolean keepgoing = true;
-
-            ShuffleDeck();
-
-            for (int i = 0; i != 8; i += 2) //Change 8 to 6 and re-enable code below to give 4 aces in a row.
-            {
-
-                keepgoing = true;
-                while (keepgoing)
-                {
-                    Card FoundAce = AllCards[aceindex];
-
-                    if (FoundAce.IsItAnAce())
-                    {
-                        Card OriginalCard = AllCards[i];
-
-                        AllCards[i] = FoundAce;
-                        AllCards[aceindex] = OriginalCard;
-                        keepgoing = false;
-                    }
-                    aceindex++;
-                }
-            }
+            currentCardNumber = 0;
         }
     }
 }
