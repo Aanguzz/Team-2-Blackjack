@@ -234,7 +234,6 @@ namespace CSC478Blackjack
             playerCard4.Enabled = true;
             playerCard5.Enabled = true;
         }
-
         private void playerCard1_Click(object sender, EventArgs e)
         {
             playerHand.GetCard(0).ToggleAce();
@@ -525,7 +524,6 @@ namespace CSC478Blackjack
         {
 
         }
-
         private static string GetNumbers(string input)
         {
             return new string(input.Where(c => char.IsDigit(c)).ToArray());

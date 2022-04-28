@@ -54,6 +54,10 @@ namespace CSC478Blackjack
         }
         public Card GetNextCard()
         {
+            if (currentCardNumber+1 > 51)
+            {
+                currentCardNumber = 0;
+            }
             return (allCards[currentCardNumber+=1]);
         }
         public void ShuffleDeck()
