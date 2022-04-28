@@ -61,7 +61,7 @@ namespace CSC478Blackjack
                     MessageBox.Show("You busted! Dealer wins.");
                     CheckBankrupt();
                 }
-                else if(playerHand.GetTotal() > 21 && PlayerCheckAce() == false)
+                else if (playerHand.GetTotal() > 21 && PlayerCheckAce() == false)
                 {
                     StartGame.Enabled = true;
                     HitButton.Enabled = false;
@@ -146,6 +146,7 @@ namespace CSC478Blackjack
             {
                 CurrentBetBox.Text = playerFunds.GetTotalFundsString();
             }
+            CurrentBetBox.Text = playerFunds.GetBetAmount().ToString();
             BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
             HitButton.Enabled = true;
             StayButton.Enabled = true;
@@ -196,7 +197,7 @@ namespace CSC478Blackjack
                 StartGame.Enabled = true;
                 HitButton.Enabled = false;
                 StayButton.Enabled = false;
-                playerFunds.LostBet();  
+                playerFunds.LostBet();
                 DisplayDealerGraphics();
                 DisplayPlayerGraphics();
                 MessageBox.Show("Dealer has Blackjack. You lose.");
@@ -500,19 +501,35 @@ namespace CSC478Blackjack
         }
         private void CurrentBetBox_TextChanged(object sender, EventArgs e)
         {
-            if (CurrentBetBox.Text.Equals(null))
+            
+            if (!CurrentBetBox.Text.Equals(""))
             {
-                playerFunds.SetBetAmount(100);
+                int betAmount = int.Parse(GetNumbers(CurrentBetBox.Text));
+                if (betAmount > playerFunds.GetTotalFunds())
+                {
+                    CurrentBetBox.Text = playerFunds.GetTotalFundsString();
+                }
+                else
+                {
+                    playerFunds.SetBetAmount(betAmount);
+                }
+
             }
             else
             {
-                playerFunds.SetBetAmount(int.Parse(CurrentBetBox.Text));
+                CurrentBetBox.Text = "100";
+                playerFunds.SetBetAmount(100);
             }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
         }
-     
+
+        private static string GetNumbers(string input)
+        {
+            return new string(input.Where(c => char.IsDigit(c)).ToArray());
+        }
+
     }
 }
