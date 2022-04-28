@@ -1,7 +1,7 @@
 ﻿
 namespace CSC478Blackjack
 {
-    public partial class Form1
+    public partial class BlackJack
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace CSC478Blackjack
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BlackJack));
             this.StartGame = new System.Windows.Forms.Button();
             this.StayButton = new System.Windows.Forms.Button();
             this.HitButton = new System.Windows.Forms.Button();
@@ -320,9 +320,9 @@ namespace CSC478Blackjack
             this.Controls.Add(this.HitButton);
             this.Controls.Add(this.StayButton);
             this.Controls.Add(this.StartGame);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Name = "Blackjack";
+            this.Text = "Blackjack";
+
             this.ResumeLayout(false);
             this.PerformLayout();
 

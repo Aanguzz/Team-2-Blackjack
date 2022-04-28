@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace CSC478Blackjack
 {
-    public partial class Form1 : Form
+    public partial class BlackJack : Form
     {
         Funds playerFunds = new Funds(5000);
         Image backOfCard;
@@ -22,7 +22,7 @@ namespace CSC478Blackjack
         bool firstHand = false;
 
 
-        public Form1()
+        public BlackJack()
         {
             InitializeComponent();
             backOfCard = Image.FromFile("Cards/BackOfCard.png");
@@ -520,10 +520,7 @@ namespace CSC478Blackjack
                 playerFunds.SetBetAmount(100);
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        
         private static string GetNumbers(string input)
         {
             return new string(input.Where(c => char.IsDigit(c)).ToArray());
