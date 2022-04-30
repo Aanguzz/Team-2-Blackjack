@@ -7,6 +7,10 @@ namespace CSC478Blackjack
 {
     class Card
     {
+        //2.2.0 Each non-face card should display the appropriate numerical value
+        //2.3.0 each non-face card should display the appropriate suit, and number of suit symbols
+        //2.4.0 each face card should display the appropriate suit.
+        //This is the backend Card class that does the different specific requirements listed from 2.2-2.4
         int value;
         bool IsAce;
         Image image;

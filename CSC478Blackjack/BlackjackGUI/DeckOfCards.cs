@@ -6,6 +6,7 @@ using System.Text;
 
 namespace CSC478Blackjack
 {
+    //2.0.0 The Blackjack game will use a standard deck of 52 playing cards, excluding jokers.
     class DeckOfCards
     {
         Card[] allCards = new Card[52];
@@ -18,10 +19,10 @@ namespace CSC478Blackjack
         }
         private void LoadCards()
         {
+            //3.0.0 Cards given their Blackjack values Ace 1 or 11, 2-9 face value, 10 for all other face cards.
             Card ACard;
             string[] list = Directory.GetFiles(@"Cards", "*.gif"); //populate an array of strings
                                                                    //containing the filenames of all "*.gif" found in the local "cards" directory.
-                                                                   // The * will fill in any text before .gif, so that all file names ending in .gif will be considered by the GetFiles() method
 
             for (int index = 0; index < 52; index++) //iterate through all 52 items(cards)
             {
@@ -41,6 +42,7 @@ namespace CSC478Blackjack
         }
         private int GetNextCardValue(int currentcardnumber)
         {
+            //3.0.0 Cards given their Blackjack values Ace 1 or 11, 2-9 face value, 10 for all other face cards.
             int cardValue = 0;
             if (currentcardnumber < 33)
                 cardValue = (currentcardnumber / 4) + 2;

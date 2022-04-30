@@ -100,6 +100,7 @@ namespace CSC478Blackjack
             // 
             // BankrollLabel
             // 
+            //1.4.0 The GUI will have a “Bankroll” which is the funds available to the player that they can bet.
             this.BankrollLabel.AutoSize = true;
             this.BankrollLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BankrollLabel.Location = new System.Drawing.Point(53, 149);
@@ -119,7 +120,8 @@ namespace CSC478Blackjack
             this.CurrentBetLabel.Text = "Current Bet";
             // 
             // BankrollAmountBox
-            // 
+            //
+            //1.4.0 The GUI will have a “Bankroll” which is the funds available to the player that they can bet.
             this.BankrollAmountBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BankrollAmountBox.Location = new System.Drawing.Point(50, 211);
             this.BankrollAmountBox.Name = "BankrollAmountBox";
@@ -296,6 +298,7 @@ namespace CSC478Blackjack
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1263, 724);
             this.Controls.Add(this.PlayerTotalLabel);

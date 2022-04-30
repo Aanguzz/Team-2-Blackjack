@@ -10,9 +10,12 @@ using System.Windows.Forms;
 
 namespace CSC478Blackjack
 {
+    //1.0.0 The Blackjack game will have a GUI in order to interact with various buttons, and will display the current cards being played by both the dealer and player.
+    //This is the form that represents the GUI
     public partial class BlackJack : Form
     {
         Funds playerFunds = new Funds(5000);
+        //2.1.0 The back of the cards will have a UIS theme. 
         Image backOfCard;
         Button[] playerCardButtonList = new Button[5];
         Button[] dealerCardButtonList = new Button[5];
@@ -25,6 +28,7 @@ namespace CSC478Blackjack
         public BlackJack()
         {
             InitializeComponent();
+            //2.1.0 The back of the cards will have a UIS theme. 
             backOfCard = Image.FromFile("Cards/BackOfCard.png");
             LoadLists();
             HitButton.Enabled = false;
@@ -33,7 +37,8 @@ namespace CSC478Blackjack
             BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
             CurrentBetBox.Text = "100";
         }
-
+        //1.2.0 The GUI will have a “Hit” button in order for a player to draw a card to their current hand. If the dealer has to draw a card, this same button will be called on the backend.
+        //This is the backend of what happens when the hit button is clicked. The Hit button is actually created in the BlackJack.Designer.cs class.
         private void HitButton_Click(object sender, EventArgs e)
         {
             if (DealCardToPlayer())
@@ -85,6 +90,8 @@ namespace CSC478Blackjack
                 HitButton.Enabled = false;
             }
         }
+        //1.3.0 The GUI will have a “Stay” button that will allow a player to keep their current hand.
+        //This is the backend of what happens when the Stay button is clicked. The stay button is actually created in the BlackJack.Designer.cs class.
         private void StayButton_Click(object sender, EventArgs e)
         {
             //take note of the current cards
@@ -92,12 +99,19 @@ namespace CSC478Blackjack
             //Grant the Player or Dealer the win
             //Make the dealer draw if under 17
             //Make the dealer stay on 17 or greater
+
+            //3.3.0 According to standard rules, once the player stays, the dealer reveals his face down card and adds up their points.
+            //If 17 or more they must stay. If 16 or less, they must hit until the points add up to 17 or more.
+            //If the dealer has an Ace and counting it as 11 makes the total 17 or more without going over 21, they must stay. 
+
             DisplayDealerGraphics();
             DisableCardButtons();
             CurrentBetBox.Enabled = true;
             StayButton.Enabled = false;
             HitButton.Enabled = false;
             StartGame.Enabled = true;
+
+            //3.5.0 According to standard rules, if a player goes over 21, the hand is a bust and their bet goes to the dealer.
             if (playerHand.GetTotal() > 21)
             {
                 playerFunds.LostBet();
@@ -140,6 +154,8 @@ namespace CSC478Blackjack
                 CheckWinner();
             }
         }
+        //1.1.0 The GUI will have a “Start” button to activate the game, enable the buttons, and draw the initial hands for the player and dealer.
+        //This is the backend of what happens when the start button is clicked. The start button is actually created in BlackJack.Designer.cs class.
         private void StartGame_Click(object sender, EventArgs e)
         {
             if (playerFunds.GetBetAmount() > playerFunds.GetTotalFunds())
@@ -156,7 +172,7 @@ namespace CSC478Blackjack
             CurrentBetBox.Enabled = false;
             firstHand = true;
             StartGame.Enabled = false;
-
+            //3.2.0 The player and dealer will be dealt two cards to start, only one card from the dealer will be visible to the player.
 
             Card tempCard = deck.GetNextCard();
             dealerHand.DealCard(tempCard);
@@ -173,7 +189,9 @@ namespace CSC478Blackjack
             DisplayDealerGraphics();
             DisplayPlayerGraphics();
             firstHand = false;
-
+            //At this stage a “Natural Blackjack” may occur.
+            //In such a case, the player with a “Natural Blackjack” wins the hand according to standard rules.
+            //Payout is 3 to 1 for the game in this scenario.
             if (playerHand.GetTotal() == 21 && dealerHand.GetTotal() == 21)
             {
                 StartGame.Enabled = true;
@@ -278,6 +296,10 @@ namespace CSC478Blackjack
         }
         private void CheckWinner()
         {
+            //3.3.0 According to standard rules, once the player stays, the dealer reveals his face down card and adds up their points.
+            //If 17 or more they must stay. If 16 or less, they must hit until the points add up to 17 or more.
+            //If the dealer has an Ace and counting it as 11 makes the total 17 or more without going over 21, they must stay. 
+           
             if (playerHand.GetTotal() > dealerHand.GetTotal())
             {
                 if (dealerHand.GetTotal() > 21)
@@ -336,11 +358,14 @@ namespace CSC478Blackjack
             }
             else
             {
+                //3.6.0 According to standard rules, a “Push” occurs when the player and the dealer both have blackjack and/or the same number of points in their hand.
+                //No bets are paid or collected. In the case of our game, funds are returned to the bankroll.
                 MessageBox.Show("Dealer's Hand:" + dealerHand.GetTotalString() + "\nPlayer's Hand:" + playerHand.GetTotalString() + "\n\nTie. Nothing happens.");
             }
             DisableCardButtons();
         }
-
+        //3.4.0 If the player holds exactly 21 then the payout is 3 to 1
+        //this is the class that will perform that action
         private bool CheckBlackJack()
         {
             if (playerHand.GetTotal() == 21)
@@ -498,6 +523,11 @@ namespace CSC478Blackjack
             }
             BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
         }
+
+        //1.5.0 The GUI will have a box to enter your bet for the next round, and cannot exceed the current Bankroll total.
+        //This is the background functionality of said box.
+        //3.1.0 Before the deal, a player may place a bet from 0 to the amount in their bankroll.
+        
         private void CurrentBetBox_TextChanged(object sender, EventArgs e)
         {
             
