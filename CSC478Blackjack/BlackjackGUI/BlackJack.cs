@@ -36,6 +36,9 @@ namespace CSC478Blackjack
             BankrollAmountBox.Enabled = false;
             BankrollAmountBox.Text = playerFunds.GetTotalFundsString();
             CurrentBetBox.Text = "100";
+            label1.BackColor = Color.Transparent;
+            PlayerTotalLabel.BackColor = Color.Transparent;
+            DealerTotalLabel.BackColor = Color.Transparent;
         }
         //1.2.0 The GUI will have a “Hit” button in order for a player to draw a card to their current hand. If the dealer has to draw a card, this same button will be called on the backend.
         //This is the backend of what happens when the hit button is clicked. The Hit button is actually created in the BlackJack.Designer.cs class.
@@ -546,8 +549,8 @@ namespace CSC478Blackjack
             }
             else
             {
-                CurrentBetBox.Text = "100";
-                playerFunds.SetBetAmount(100);
+                CurrentBetBox.Text = "0";
+                playerFunds.SetBetAmount(0);
             }
         }
         
